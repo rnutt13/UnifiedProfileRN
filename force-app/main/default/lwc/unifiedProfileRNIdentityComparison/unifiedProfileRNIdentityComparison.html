@@ -1,0 +1,67 @@
+<template>
+    <article class="slds-card slds-var-p-around_medium" style={cardStyle}>
+        <div class="slds-grid slds-gutters">
+            <!-- Before: Separate identities -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <div class="slds-box slds-theme_shade comparison-box">
+                    <h3 class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>
+                        <lightning-icon icon-name="utility:user" size="x-small" class="slds-var-m-right_x-small"></lightning-icon>
+                        {beforeTitle}
+                    </h3>
+                    <p class="slds-text-body_small slds-var-p-bottom_medium" style={textStyle}>{beforeDescription}</p>
+                    
+                    <template for:each={separateIdentities} for:item="identity" for:index="index">
+                        <div key={identity.id} class="slds-box slds-var-p-around_x-small slds-var-m-bottom_x-small identity-box">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <div class="slds-text-title slds-text-color_weak" style={textStyle}>{identity.source}</div>
+                                </div>
+                                <div class="slds-col slds-size_2-of-3">
+                                    <div class="slds-text-body_regular" style={textStyle}>{identity.email}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- After: Unified identity -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <div class="slds-box slds-theme_default comparison-box">
+                    <h3 class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>
+                        <lightning-icon icon-name="utility:merge" size="x-small" class="slds-var-m-right_x-small"></lightning-icon>
+                        {afterTitle}
+                    </h3>
+                    <p class="slds-text-body_small slds-var-p-bottom_medium" style={textStyle}>{afterDescription}</p>
+                    
+                    <div class="slds-box slds-var-p-around_x-small unified-box">
+                        <div class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>{unifiedProfileName}</div>
+                        <template for:each={unifiedEmails} for:item="email" for:index="index">
+                            <div key={email.id} class="slds-grid slds-gutters slds-var-p-around_xx-small">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <div class="slds-text-title slds-text-color_weak" style={textStyle}>{email.source}</div>
+                                </div>
+                                <div class="slds-col slds-size_2-of-3">
+                                    <div class="slds-text-body_regular" style={textStyle}>{email.address}</div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resolution Summary -->
+        <div class="slds-grid slds-gutters slds-var-p-top_medium">
+            <div class="slds-col">
+                <div class="slds-box slds-theme_info">
+                    <h4 class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>
+                        <lightning-icon icon-name="utility:success" size="x-small" class="slds-var-m-right_x-small"></lightning-icon>
+                        {resolutionSummaryTitle}
+                    </h4>
+                    <p class="slds-text-body_small" style={textStyle}>{resolutionSummaryDescription}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</template> 

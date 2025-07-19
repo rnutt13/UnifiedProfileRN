@@ -1,0 +1,60 @@
+<template>
+ <lightning-card>
+ <article class="slds-card">
+ <header class="slds-card__header slds-grid ">
+ <div class="slds-media slds-media_center slds-has-flexi-truncate">
+ <div class="slds-media__body slds-truncate">
+ <h2><span class="slds-text-heading_small">
+ <slot name="title">
+ <h1 slot="title"><b>{componentTitle}</b></h1>
+ </slot>
+ </span></h2>
+ </div>
+ </div>
+ </header>
+ <div class="slds-card__body">
+ <div class="slds-grid slds-gutters slds-wrap slds-box">
+ <div class="slds-p-around_none slds-box slds-box_xx-small slds-m-around_x-small slds-float_left custom-box">
+ <div class="slds-grid slds-wrap">
+ <div class="custom-header slds-col slds-size_12-of-12 slds-truncate slds-p-around_x-small">
+ <span class="slds-m-left_xx-small">{offerTitle1}</span></div>
+ <div class="description slds-scrollable slds-col slds-size_4-of-6 slds-p-top_small slds-p-left_x-small">
+ <span>{offerDescription1}.</span></div>
+ <div class="slds-float_left slds-p-around_xx-small slds-col slds-size_2-of-6">
+ <img src={offerImageUrl1}>
+ </div>
+ <div class="slds-col slds-size_12-of-12 slds-p-top_x-small slds-p-bottom_x-small slds-align_absolute-center">
+ <button class="slds-button slds-button_neutral"><a href="https://www.northerntrailoutfitters.com/default/women%27s-mesh-around-tank-2020603AC8.html" target="_blank">{offerButton1}</a></button></div>
+ </div>
+ </div>
+ <div class="slds-p-around_none slds-box slds-box_xx-small slds-m-around_x-small slds-float_left custom-box">
+ <div class="slds-grid slds-wrap">
+ <div class="custom-header slds-col slds-size_12-of-12 slds-truncate slds-p-around_x-small">
+ <span class="slds-m-left_xx-small">{offerTitle2}</span></div>
+ <div class="description slds-scrollable slds-col slds-size_4-of-6 slds-p-top_small slds-p-left_x-small">
+ <span>{offerDescription2}</span></div>
+ <div class="slds-float_left slds-p-around_xx-small slds-col slds-size_2-of-6">
+ <img src={offerImageUrl2}>
+ </div>
+ <div class="slds-col slds-size_12-of-12 slds-p-top_x-small slds-p-bottom_x-small slds-align_absolute-center">
+ <button class="slds-button slds-button_neutral"><a href="https://www.northerntrailoutfitters.com/default/women%E2%80%99s-ambition-short-sleeve-2020901BHM.html" target="_blank">{offerButton2}</a></button></div>
+ </div>
+ </div>
+ <div class="slds-p-around_none slds-box slds-box_xx-small slds-m-around_x-small slds-float_left custom-box">
+ <div class="slds-grid slds-wrap">
+ <div class="custom-header slds-col slds-size_12-of-12 slds-truncate slds-p-around_x-small">
+ <span class="slds-m-left_xx-small">{offerTitle3}</span></div>
+ <div class="description slds-scrollable slds-col slds-size_4-of-6 slds-p-top_small slds-p-left_x-small">
+ <span>{offerDescription3}</span></div>
+ <div class="slds-float_left slds-p-around_xx-small slds-col slds-size_2-of-6">
+ <img src={offerImageUrl3}>
+ </div>
+ <div class="slds-col slds-size_12-of-12 slds-p-top_x-small slds-p-bottom_x-small slds-align_absolute-center">
+ <button class="slds-button slds-button_neutral"><a href="https://www.northerntrailoutfitters.com/default/women%27s-perfect-core-high-rise-tights-2030482AA3.html" target="_blank">{offerButton3}</a></button></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </article>
+ </lightning-card>
+</template>

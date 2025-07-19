@@ -1,0 +1,12 @@
+.custom-header {
+    background-color: rgb(48,113,157);
+    color: #16325C;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.custom-box {
+    max-width: 20rem;
+    background-color: white;
+    font-size: .8125rem;
+}

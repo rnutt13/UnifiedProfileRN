@@ -1,0 +1,39 @@
+:host {
+    --background-color: var(--lwc-backgroundColor, #ffffff);
+    --text-color: var(--lwc-textColor, #000000);
+}
+
+.slds-card {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.identity-table {
+    margin-top: 1rem;
+}
+
+/* Responsive design patterns */
+@media (max-width: 768px) {
+    .slds-tabs_default__nav {
+        flex-direction: column;
+    }
+    
+    .slds-tabs_default__item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .slds-tabs_default__link {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slds-card {
+        padding: 0.5rem;
+    }
+    
+    .slds-text-heading_medium {
+        font-size: 1.125rem;
+    }
+} 

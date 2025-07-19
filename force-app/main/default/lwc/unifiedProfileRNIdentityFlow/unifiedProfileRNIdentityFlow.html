@@ -1,0 +1,86 @@
+<template>
+    <article class="slds-card slds-var-p-around_medium" style={cardStyle}>
+        <!-- Progress indicator -->
+        <div class="slds-progress-bar slds-var-p-bottom_medium">
+            <div class="slds-progress-bar__value" style={progressStyle}></div>
+        </div>
+        
+        <!-- Step content -->
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <h3 class="slds-text-heading_medium slds-var-p-bottom_small" style={textStyle}>{currentStep.title}</h3>
+                <p class="slds-text-body_regular slds-var-p-bottom_medium" style={textStyle}>{currentStep.description}</p>
+                
+                <!-- Data visualization for current step -->
+                <div class="slds-box slds-var-p-around_medium step-content">
+                    <template if:true={showDataSources}>
+                        <div class="slds-grid slds-gutters">
+                            <template for:each={dataSources} for:item="source" for:index="index">
+                                <div key={source.id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                    <div class="slds-box slds-var-p-around_small source-box">
+                                        <lightning-icon icon-name={source.icon} size="medium" class="slds-var-m-bottom_small"></lightning-icon>
+                                        <div class="slds-text-heading_small" style={textStyle}>{source.name}</div>
+                                        <div class="slds-text-body_small" style={textStyle}>{source.recordCount} records</div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    
+                    <template if:true={showMatchingLogic}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>Matching Confidence Score</div>
+                                <lightning-progress-bar value={matchingScore} size="large" class="slds-var-m-bottom_small"></lightning-progress-bar>
+                                <div class="slds-text-body_small" style={textStyle}>
+                                    Confidence Score: {matchingScore}%
+                                </div>
+                                <div class="slds-text-body_small slds-var-p-top_small" style={textStyle}>
+                                    Based on email address similarity and domain matching algorithms
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={showUnifiedResult}>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-text-heading_small slds-var-p-bottom_small" style={textStyle}>Unified Profile Created</div>
+                                <template for:each={unifiedData} for:item="item" for:index="index">
+                                    <div key={item.id} class="slds-grid slds-gutters slds-var-p-around_xx-small">
+                                        <div class="slds-col slds-size_1-of-4">
+                                            <div class="slds-text-title slds-text-color_weak" style={textStyle}>{item.field}</div>
+                                        </div>
+                                        <div class="slds-col slds-size_3-of-4">
+                                            <div class="slds-text-body_regular" style={textStyle}>{item.value}</div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="slds-grid slds-gutters slds-var-p-top_medium">
+                    <div class="slds-col">
+                        <lightning-button 
+                            label="Previous" 
+                            onclick={previousStep}
+                            disabled={isFirstStep}
+                            class="slds-var-m-right_small">
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-grid_align-end">
+                        <lightning-button 
+                            label="Next" 
+                            variant="brand"
+                            onclick={nextStep}
+                            disabled={isLastStep}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</template> 

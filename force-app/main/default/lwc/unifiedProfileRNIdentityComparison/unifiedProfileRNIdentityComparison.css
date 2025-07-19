@@ -1,0 +1,50 @@
+:host {
+    --background-color: var(--lwc-backgroundColor, #ffffff);
+    --text-color: var(--lwc-textColor, #000000);
+}
+
+.slds-card {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.comparison-box {
+    height: 100%;
+    min-height: 300px;
+}
+
+.identity-box {
+    border-left: 3px solid #dddbda;
+    background-color: #f3f2f2;
+}
+
+.unified-box {
+    border-left: 3px solid #04844b;
+    background-color: #f0f8f4;
+}
+
+/* Responsive design patterns */
+@media (max-width: 768px) {
+    .comparison-box {
+        min-height: 200px;
+        margin-bottom: 1rem;
+    }
+    
+    .slds-grid {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .slds-card {
+        padding: 0.5rem;
+    }
+    
+    .slds-text-heading_small {
+        font-size: 1rem;
+    }
+    
+    .identity-box, .unified-box {
+        padding: 0.5rem;
+    }
+} 

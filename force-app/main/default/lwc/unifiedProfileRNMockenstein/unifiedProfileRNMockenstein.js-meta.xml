@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <!-- Component Content -->
+            <property name="componentTitle" type="String" default="Einstein Discovery" label="Component Title" description="Main title for the component"/>
+            <property name="scoreLabel" type="String" default="OUTCOME SCORE" label="Score Label" description="Label for the outcome score section"/>
+            <property name="scoreValue" type="String" default="62" label="Score Value" description="The main outcome score to display"/>
+            <property name="outcomeColor" type="String" default="0-25,25-75,75-100" label="Outcome Color Ranges" description="Color threshold ranges for score display"/>
+            
+            <!-- Section Headers -->
+            <property name="section1Head" type="String" default="Leading Causes" label="Section 1 Header" description="Header for the leading causes section"/>
+            <property name="section2Head" type="String" default="HOW TO IMPROVE THIS" label="Section 2 Header" description="Header for the improvement recommendations section"/>
+            
+            <!-- Leading Causes Section -->
+            <property name="section11Text" type="String" default="Response time exceeds SLA by 2 hours" label="Cause 1 Text" description="First leading cause description"/>
+            <property name="section11Score" type="String" default="-15" label="Cause 1 Score" description="Impact score for first cause"/>
+            <property name="section12Text" type="String" default="Agent knowledge gaps identified" label="Cause 2 Text" description="Second leading cause description"/>
+            <property name="section12Score" type="String" default="-8" label="Cause 2 Score" description="Impact score for second cause"/>
+            <property name="section13Text" type="String" default="Customer communication delays" label="Cause 3 Text" description="Third leading cause description"/>
+            <property name="section13Score" type="String" default="-12" label="Cause 3 Score" description="Impact score for third cause"/>
+            <property name="section14Text" type="String" label="Cause 4 Text" description="Fourth leading cause description (optional)"/>
+            <property name="section14Score" type="String" label="Cause 4 Score" description="Impact score for fourth cause (optional)"/>
+            <property name="section15Text" type="String" label="Cause 5 Text" description="Fifth leading cause description (optional)"/>
+            <property name="section15Score" type="String" label="Cause 5 Score" description="Impact score for fifth cause (optional)"/>
+            
+            <!-- Improvement Recommendations Section -->
+            <property name="section21Text" type="String" default="Implement automated response system" label="Recommendation 1 Text" description="First improvement recommendation"/>
+            <property name="section21Score" type="String" default="+20" label="Recommendation 1 Score" description="Expected improvement score for first recommendation"/>
+            <property name="section22Text" type="String" default="Provide additional agent training" label="Recommendation 2 Text" description="Second improvement recommendation"/>
+            <property name="section22Score" type="String" default="+15" label="Recommendation 2 Score" description="Expected improvement score for second recommendation"/>
+            <property name="section23Text" type="String" default="Enhance communication protocols" label="Recommendation 3 Text" description="Third improvement recommendation"/>
+            <property name="section23Score" type="String" default="+18" label="Recommendation 3 Score" description="Expected improvement score for third recommendation"/>
+            <property name="section24Text" type="String" label="Recommendation 4 Text" description="Fourth improvement recommendation (optional)"/>
+            <property name="section24Score" type="String" label="Recommendation 4 Score" description="Expected improvement score for fourth recommendation (optional)"/>
+            <property name="section25Text" type="String" label="Recommendation 5 Text" description="Fifth improvement recommendation (optional)"/>
+            <property name="section25Score" type="String" label="Recommendation 5 Score" description="Expected improvement score for fifth recommendation (optional)"/>
+            
+            <!-- Styling Properties -->
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            <property name="cardBorderColor" type="String" default="#dddbda" label="Card Border Color" description="Border color for the card"/>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <!-- Component Content -->
+            <property name="componentTitle" type="String" default="Einstein Discovery" label="Component Title" description="Main title for the component"/>
+            <property name="scoreLabel" type="String" default="OUTCOME SCORE" label="Score Label" description="Label for the outcome score section"/>
+            <property name="scoreValue" type="String" default="62" label="Score Value" description="The main outcome score to display"/>
+            <property name="outcomeColor" type="String" default="0-25,25-75,75-100" label="Outcome Color Ranges" description="Color threshold ranges for score display"/>
+            
+            <!-- Section Headers -->
+            <property name="section1Head" type="String" default="Leading Causes" label="Section 1 Header" description="Header for the leading causes section"/>
+            <property name="section2Head" type="String" default="HOW TO IMPROVE THIS" label="Section 2 Header" description="Header for the improvement recommendations section"/>
+            
+            <!-- Leading Causes Section -->
+            <property name="section11Text" type="String" default="Response time exceeds SLA by 2 hours" label="Cause 1 Text" description="First leading cause description"/>
+            <property name="section11Score" type="String" default="-15" label="Cause 1 Score" description="Impact score for first cause"/>
+            <property name="section12Text" type="String" default="Agent knowledge gaps identified" label="Cause 2 Text" description="Second leading cause description"/>
+            <property name="section12Score" type="String" default="-8" label="Cause 2 Score" description="Impact score for second cause"/>
+            <property name="section13Text" type="String" default="Customer communication delays" label="Cause 3 Text" description="Third leading cause description"/>
+            <property name="section13Score" type="String" default="-12" label="Cause 3 Score" description="Impact score for third cause"/>
+            <property name="section14Text" type="String" label="Cause 4 Text" description="Fourth leading cause description (optional)"/>
+            <property name="section14Score" type="String" label="Cause 4 Score" description="Impact score for fourth cause (optional)"/>
+            <property name="section15Text" type="String" label="Cause 5 Text" description="Fifth leading cause description (optional)"/>
+            <property name="section15Score" type="String" label="Cause 5 Score" description="Impact score for fifth cause (optional)"/>
+            
+            <!-- Improvement Recommendations Section -->
+            <property name="section21Text" type="String" default="Implement automated response system" label="Recommendation 1 Text" description="First improvement recommendation"/>
+            <property name="section21Score" type="String" default="+20" label="Recommendation 1 Score" description="Expected improvement score for first recommendation"/>
+            <property name="section22Text" type="String" default="Provide additional agent training" label="Recommendation 2 Text" description="Second improvement recommendation"/>
+            <property name="section22Score" type="String" default="+15" label="Recommendation 2 Score" description="Expected improvement score for second recommendation"/>
+            <property name="section23Text" type="String" default="Enhance communication protocols" label="Recommendation 3 Text" description="Third improvement recommendation"/>
+            <property name="section23Score" type="String" default="+18" label="Recommendation 3 Score" description="Expected improvement score for third recommendation"/>
+            <property name="section24Text" type="String" label="Recommendation 4 Text" description="Fourth improvement recommendation (optional)"/>
+            <property name="section24Score" type="String" label="Recommendation 4 Score" description="Expected improvement score for fourth recommendation (optional)"/>
+            <property name="section25Text" type="String" label="Recommendation 5 Text" description="Fifth improvement recommendation (optional)"/>
+            <property name="section25Score" type="String" label="Recommendation 5 Score" description="Expected improvement score for fifth recommendation (optional)"/>
+            
+            <!-- Styling Properties -->
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            <property name="cardBorderColor" type="String" default="#dddbda" label="Card Border Color" description="Border color for the card"/>
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle> 

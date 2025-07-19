@@ -1,0 +1,104 @@
+<template>
+    <article class={containerClass}>
+        <div class="slds-card slds-var-p-around_medium">
+            <!-- Header Section -->
+            <div class="slds-grid slds-grid_align-center slds-var-p-bottom_medium">
+                <div class="slds-col slds-size_1-of-12">
+                    <lightning-icon 
+                        icon-name="utility:chart" 
+                        size="medium" 
+                        variant="brand"
+                        class="slds-icon">
+                    </lightning-icon>
+                </div>
+                <div class="slds-col slds-size_11-of-12">
+                    <h2 class="slds-text-heading_medium slds-text-color_default">{title}</h2>
+                </div>
+            </div>
+
+            <!-- Score Display Section -->
+            <div class="slds-grid slds-gutters slds-var-p-bottom_medium">
+                <div class="slds-col slds-size_1-of-12">
+                    <lightning-icon 
+                        icon-name="utility:chevronright" 
+                        size="x-small" 
+                        class="slds-icon slds-text-color_weak">
+                    </lightning-icon>
+                </div>
+                <div class="slds-col slds-size_11-of-12">
+                    <div class="slds-grid slds-grid_align-center">
+                        <!-- Circular Score Meter -->
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="score-container">
+                                <div class="score-circle">
+                                    <svg class="score-svg" viewBox="0 0 120 120">
+                                        <!-- Background circle -->
+                                        <circle 
+                                            cx="60" 
+                                            cy="60" 
+                                            r="50" 
+                                            class="score-background">
+                                        </circle>
+                                        <!-- Animated progress circle -->
+                                        <circle 
+                                            cx="60" 
+                                            cy="60" 
+                                            r="50" 
+                                            class={progressCircleClass}
+                                            stroke-dasharray={strokeDashArray}
+                                            stroke-dashoffset={strokeDashOffset}
+                                            transform="rotate(-90 60 60)">
+                                        </circle>
+                                    </svg>
+                                    <div class="score-text">
+                                        <span class="score-number">{displayScore}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Score Label -->
+                        <div class="slds-col slds-size_2-of-3">
+                            <div class="slds-var-p-left_medium">
+                                <h3 class="slds-text-heading_large slds-text-color_default slds-var-p-bottom_x-small">
+                                    {scoreLabel}
+                                </h3>
+                                <p class="slds-text-body_regular slds-text-color_weak">
+                                    {scoreDescription}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Indicators Section -->
+            <div class="slds-box slds-theme_shade slds-var-p-around_small">
+                <div class="slds-grid slds-grid_align-center slds-var-p-bottom_small">
+                    <div class="slds-col slds-size_1-of-12">
+                        <lightning-icon 
+                            icon-name="utility:warning" 
+                            size="x-small" 
+                            class={riskIconClass}>
+                        </lightning-icon>
+                    </div>
+                    <div class="slds-col slds-size_11-of-12">
+                        <h4 class="slds-text-heading_small slds-text-color_default">
+                            {riskSectionTitle}
+                        </h4>
+                    </div>
+                </div>
+                
+                <!-- Risk Factors List -->
+                <div class="slds-var-p-left_medium">
+                    <template for:each={riskFactors} for:item="factor" for:index="index">
+                        <div key={factor.id} class="slds-var-p-bottom_x-small">
+                            <p class="slds-text-body_regular slds-text-color_default">
+                                {factor.description}
+                            </p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </article>
+</template> 

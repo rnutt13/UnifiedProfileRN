@@ -1,0 +1,180 @@
+<template>
+    <!-- Main Card Component -->
+    <article class="slds-card card" 
+             style={cardBackgroundStyle}>
+        
+        <!-- Customer Profile Section -->
+        <div class="slds-media slds-m-left_x-large slds-m-top_large slds-m-bottom_large">
+            <div class="slds-media_figure">
+                <div class="customer-image-container">
+                    <img src={profileImageUrl} 
+                         alt="Customer Profile" 
+                         class="customer-avatar" />
+                </div>
+            </div>
+            <div class="slds-media_body slds-m-left_medium slds-m-top_large">
+                <div class={customerNameClass}>
+                    {customerName}
+                </div>
+                <template if:true={customerLocation}>
+                    <div class={locationTextClass}>
+                        {customerLocation}
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class={contactSectionClass}>
+            <div class="slds-media_body">
+                <div>
+                    <img class="metric-icon" 
+                         src={customerIdIconUrl} 
+                         alt="Customer ID" />
+                    <span class={labelTextClass}>Customer ID</span>
+                    <span class={valueTextClass}>{customerId}</span>
+                </div>
+                <div>
+                    <img class="metric-icon" 
+                         src={emailIconUrl} 
+                         alt="Email" />
+                    <span class={labelTextClass}>Email Address</span>
+                    <span class={valueTextClass}>{customerEmail}</span>
+                </div>
+                <div>
+                    <img class="metric-icon" 
+                         src={phoneIconUrl} 
+                         alt="Phone" />
+                    <span class={labelTextClass}>Phone Number</span>
+                    <span class={valueTextClass}>{customerPhone}</span>
+                </div>
+                <div>
+                    <img class="metric-icon" 
+                         src={addressIconUrl} 
+                         alt="Address" />
+                    <span class={labelTextClass}>Address</span>
+                    <div class={valueTextClass} style="display:inline-block;">{customerStreet}</div>
+                    <template if:true={customerCity}>
+                        <div class={valueTextClass} style="margin-left: 112px;margin-top: -10px;">
+                            {customerCity}, {customerState} {customerPostalCode}
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Section 1 -->
+        <div class={metricsSectionClass}>
+            <div class="slds-media_body">
+                <div class="customer-metric">
+                    <img class="metric-icon" 
+                         src={metric1IconUrl} 
+                         alt="Metric 1" />
+                    <span class={labelTextClass}>{metric1Label}</span>
+                    <span class={valueTextClass}>{metric1Value}</span>
+                </div>
+                <div class="customer-metric">
+                    <img class="metric-icon" 
+                         src={metric2IconUrl} 
+                         alt="Metric 2" />
+                    <span class={labelTextClass}>{metric2Label}</span>
+                    <span class={valueTextClass}>{metric2Value}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Propensity to Purchase Section -->
+        <div class={metricsSectionClass}>
+            <div class="slds-media_body">
+                <div class="customer-metric">
+                    <img class="metric-icon" 
+                         src={metric3IconUrl} 
+                         alt="Metric 3" />
+                    <span class={labelTextClass}>{metric3Label}</span>
+                    <span class={valueTextClass}>{metric3Value}</span>
+                </div>
+                <div class="customer-metric" style="margin-bottom:10px;">
+                    <img class="metric-icon" 
+                         src={metric4IconUrl} 
+                         alt="Metric 4" />
+                    <span class={labelTextClass}>{metric4Label}</span>
+                    <span class={valueTextClass}>{metric4Value}</span>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar-container">
+                        <div class={purchaseProgressBarClass} style={purchaseProgressStyle}></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Engagement Score Section -->
+        <div class={metricsSectionClass}>
+            <div class="slds-media_body">
+                <div class="customer-metric" style="margin-bottom:10px;">
+                    <img class="metric-icon" 
+                         src={metric5IconUrl} 
+                         alt="Metric 5" />
+                    <span class={labelTextClass}>{metric5Label}</span>
+                    <span class={valueTextClass}>{engagementScore}%</span>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-value progress-bar-blue" style={engagementProgressStyle}></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Powered By Section -->
+        <div class="slds-media slds-m-left_x-large slds-m-right_x-large slds-m-bottom_x-large">
+            <div class="slds-media_body">
+                <div class="powered-by-section">
+                    <div class={labelTextClass}>Powered By</div>
+                    <div class="powered-by-icons">
+                        <template if:true={showAnalytics}>
+                            <img class="product-icon" 
+                                 src={analyticsIconUrl} 
+                                 alt="Analytics" />
+                        </template>
+                        <template if:true={showCommerce}>
+                            <img class="product-icon" 
+                                 src={commerceIconUrl} 
+                                 alt="Commerce" />
+                        </template>
+                        <template if:true={showMarketing}>
+                            <img class="product-icon" 
+                                 src={marketingIconUrl} 
+                                 alt="Marketing" />
+                        </template>
+                        <template if:true={showMulesoft}>
+                            <img class="product-icon" 
+                                 src={mulesoftIconUrl} 
+                                 alt="Mulesoft" />
+                        </template>
+                        <template if:true={showSales}>
+                            <img class="product-icon" 
+                                 src={salesIconUrl} 
+                                 alt="Sales" />
+                        </template>
+                        <template if:true={showService}>
+                            <img class="product-icon" 
+                                 src={serviceIconUrl} 
+                                 alt="Service" />
+                        </template>
+                        <template if:true={showSageMaker}>
+                            <img class="product-icon" 
+                                 src={sageMakerIconUrl} 
+                                 alt="SageMaker" />
+                        </template>
+                        <template if:true={showSnowflake}>
+                            <img class="product-icon" 
+                                 src={snowflakeIconUrl} 
+                                 alt="Snowflake" />
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</template> 

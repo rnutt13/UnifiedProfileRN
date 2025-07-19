@@ -1,0 +1,158 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-grid slds-einstein-header slds-card__header">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                    <div class="slds-media__body">
+                        <h2 class="component-title slds-card__header-link slds-text-heading_small" title={componentTitle}>
+                            {componentTitle}
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+            </header>
+        </div>
+        
+        <div class="slds-card__body slds-card__body_inner">
+            <!-- Overall Score Section -->
+            <div class="section-holder">
+                <div class="predicted-CSAT slds-clearfix slds-p-around_small slds-border_bottom">
+                    <div class="slds-clearfix" style="display:flex;align-items:center;">
+                        <div class="slds-float_left slds-align_absolute-center overall-score" 
+                             style="font-size: 25px; width: 30%;" 
+                             data-score={scoreValue}>
+                            <p class={overallScoreClass}>{scoreValue}</p>
+                        </div>                     
+                        <div class="slds-float_left slds-p-left_small slds-text-title_caps" style="width: 100%;">
+                            <p style="line-height: 30px;">{scoreLabel}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leading Causes Section -->
+            <div class="section-holder">
+                <div class="negative slds-clearfix slds-p-around_small slds-border_bottom">
+                    <div class="slds-text-title_caps slds-m-around_medium">{section1Head}</div>
+                    
+                    <template if:true={section11Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section11ScoreClass}>{section11Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section11Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section12Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section12ScoreClass}>{section12Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section12Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section13Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section13ScoreClass}>{section13Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section13Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section14Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section14ScoreClass}>{section14Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section14Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section15Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section15ScoreClass}>{section15Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section15Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- How to Improve Section -->
+            <div class="section-holder">
+                <div class="positive slds-clearfix slds-p-around_small">
+                    <div class="slds-text-title_caps slds-m-around_medium">{section2Head}</div>
+                    
+                    <template if:true={section21Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section21ScoreClass}>{section21Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section21Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section22Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section22ScoreClass}>{section22Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section22Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section23Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section23ScoreClass}>{section23Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section23Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section24Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section24ScoreClass}>{section24Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section24Text}</p>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <template if:true={section25Text}>
+                        <div class="slds-clearfix slds-m-bottom_x-small">                            
+                            <div class="slds-float_left slds-align_absolute-center score-item" style="width: 30%">
+                                <p class={section25ScoreClass}>{section25Score}</p>
+                            </div>
+                            <div class="slds-float_left slds-p-left_small" style="width:70%;">
+                                <p>{section25Text}</p>
+                            </div>
+                        </div>
+                    </template>                    
+                </div>
+            </div>
+        </div>
+    </article>
+</template> 

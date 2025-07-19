@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <!-- UI Customization -->
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            
+            <!-- Before Section Content -->
+            <property name="beforeTitle" type="String" default="Before: Separate Identities" label="Before Section Title" description="Title for the before section showing separate identities"/>
+            <property name="beforeDescription" type="String" default="Customer data exists in multiple systems with different identifiers" label="Before Section Description" description="Description for the before section"/>
+            
+            <!-- After Section Content -->
+            <property name="afterTitle" type="String" default="After: Unified Identity" label="After Section Title" description="Title for the after section showing unified identity"/>
+            <property name="afterDescription" type="String" default="Data Cloud resolves identities into a single customer profile" label="After Section Description" description="Description for the after section"/>
+            <property name="unifiedProfileName" type="String" default="Robert Hodges - Unified Profile" label="Unified Profile Name" description="Name of the unified customer profile"/>
+            
+            <!-- Resolution Summary -->
+            <property name="resolutionSummaryTitle" type="String" default="Identity Resolution Complete" label="Summary Title" description="Title for the resolution summary section"/>
+            <property name="resolutionSummaryDescription" type="String" default="Successfully unified 3 separate identities from different data sources into a single customer profile with 95% confidence score." label="Summary Description" description="Description of the resolution results"/>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <!-- UI Customization -->
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            
+            <!-- Before Section Content -->
+            <property name="beforeTitle" type="String" default="Before: Separate Identities" label="Before Section Title" description="Title for the before section showing separate identities"/>
+            <property name="beforeDescription" type="String" default="Customer data exists in multiple systems with different identifiers" label="Before Section Description" description="Description for the before section"/>
+            
+            <!-- After Section Content -->
+            <property name="afterTitle" type="String" default="After: Unified Identity" label="After Section Title" description="Title for the after section showing unified identity"/>
+            <property name="afterDescription" type="String" default="Data Cloud resolves identities into a single customer profile" label="After Section Description" description="Description for the after section"/>
+            <property name="unifiedProfileName" type="String" default="Robert Hodges - Unified Profile" label="Unified Profile Name" description="Name of the unified customer profile"/>
+            
+            <!-- Resolution Summary -->
+            <property name="resolutionSummaryTitle" type="String" default="Identity Resolution Complete" label="Summary Title" description="Title for the resolution summary section"/>
+            <property name="resolutionSummaryDescription" type="String" default="Successfully unified 3 separate identities from different data sources into a single customer profile with 95% confidence score." label="Summary Description" description="Description of the resolution results"/>
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle> 

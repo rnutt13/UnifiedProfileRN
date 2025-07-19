@@ -1,0 +1,165 @@
+.slds-card {
+    background: var(--lwc-backgroundColor, #ffffff);
+    color: var(--lwc-textColor, #000000);
+}
+
+.slds-card__body {
+    margin-bottom: 0 !important;
+}
+
+.component-title {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--lwc-textColor, #000000);
+}
+
+/* Color classes for scores */
+.red {
+    color: #c23934 !important;
+}
+
+.green {
+    color: #4db53c !important;
+}
+
+.yellow {
+    color: #F3A83C !important;
+}
+
+/* Enhanced color options */
+.blue {
+    color: #0070d2 !important;
+}
+
+.purple {
+    color: #7b68ee !important;
+}
+
+.orange {
+    color: #ffb75d !important;
+}
+
+.teal {
+    color: #04844b !important;
+}
+
+.gray {
+    color: #706e6b !important;
+}
+
+/* Section styling */
+.section-holder {
+    margin-bottom: 0.5rem;
+}
+
+.predicted-CSAT {
+    background-color: rgba(0, 112, 210, 0.05);
+}
+
+.negative {
+    background-color: rgba(194, 57, 52, 0.05);
+}
+
+.positive {
+    background-color: rgba(77, 181, 60, 0.05);
+}
+
+/* Score item styling */
+.score-item {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.overall-score {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .component-title {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+    
+    .overall-score {
+        font-size: 1.2rem;
+    }
+    
+    .score-item {
+        font-size: 1rem;
+    }
+    
+    .slds-text-title_caps {
+        font-size: 0.75rem;
+    }
+    
+    .slds-p-around_small {
+        padding: 0.5rem;
+    }
+    
+    .slds-m-around_medium {
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slds-float_left {
+        float: none !important;
+        display: block;
+        width: 100% !important;
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
+    
+    .slds-p-left_small {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+    
+    .overall-score {
+        font-size: 1rem;
+        width: 100% !important;
+    }
+    
+    .score-item {
+        font-size: 0.9rem;
+        width: 100% !important;
+    }
+}
+
+/* Custom background color support */
+.slds-card[style*="background"] {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Enhanced typography */
+.slds-text-title_caps {
+    font-weight: 600;
+    letter-spacing: 0.025rem;
+}
+
+/* Hover effects for interactive elements */
+.score-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Accessibility improvements */
+.slds-card:focus-within {
+    outline: 2px solid #0070d2;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .slds-card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .red, .green, .yellow, .blue, .purple, .orange, .teal, .gray {
+        color: #000 !important;
+    }
+} 

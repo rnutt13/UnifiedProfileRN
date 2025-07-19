@@ -1,0 +1,332 @@
+# Salesforce Data Cloud Demo Components - Development Guidelines
+
+## Project Overview
+This project contains Lightning Web Components (LWCs) for Salesforce Data Cloud customer demos. These are mock components that showcase Data Cloud capabilities without accessing actual Salesforce data.
+
+## Core Requirements
+
+### 🎨 APPEARANCE & BRANDING
+- **Follow Salesforce Design System (SLDS)**: Use SLDS classes, components, and design patterns consistently
+- **Color Scheme**: 
+  - Primary background: White (`#ffffff`) unless specified otherwise
+  - Use Salesforce brand colors: Blue (`rgb(48,113,157)`), Light Blue (`rgba(111,159,178,1)`)
+  - Text colors: Black (`#000000`) or White (`#ffffff`) based on background
+- **Typography**: Use "Salesforce Sans" font family
+- **Font Family Rule**: Do not override the Salesforce default font-family in any component CSS. Always use the platform's default font stack for all text.
+- **Icons**: Use SLDS utility icons (e.g., `utility:identity`, `utility:email`, `utility:chart`)
+- **Layout**: Use SLDS grid system (`slds-grid`, `slds-col`, `slds-size_*`)
+- **Cards**: Use `slds-card` with proper spacing (`slds-var-p-around_*`)
+
+### 🎛️ UI CUSTOMIZATION REQUIREMENTS
+- **Background Color Toggle**: Include editable properties for background color changes
+- **Text Color Toggle**: Include editable properties to switch between white/black text
+- **Image URL Customization**: All images must be configurable via Lightning App Builder
+- **Content Customization**: All text, labels, and values must be editable properties
+
+### 🌙 DARK MODE & LIGHT MODE
+- **Dark Mode Toggle**: All components must include a dark mode toggle property
+- **Dark Mode Styling**: 
+  - Background: Dark blue (`#032d60`)
+  - Text: White (`#ffffff`)
+- **Light Mode Styling**:
+  - Background: White (`#ffffff`)
+  - Text: Black (`#000000`)
+- **Implementation**: Use `@api darkMode = false` property with conditional CSS classes
+- **Override Priority**: If specific background color instructions are provided elsewhere, those take precedence over dark/light mode defaults
+
+### 📱 RESPONSIVENESS (CRITICAL)
+- **Primary Focus**: Desktop form factor optimization
+- **Multi-Screen Support**: Must work on all screen sizes, zooms, and form factors
+- **Responsive Design**: Use SLDS responsive classes (`slds-size_*`, `slds-medium-size_*`, `slds-large-size_*`)
+- **Flexible Layouts**: Use flexbox and grid systems that adapt to different screen sizes
+- **Viewport Considerations**: Components must scale properly at different zoom levels
+- **Mobile Considerations**: Ensure touch-friendly interactions and readable text sizes
+
+### 🔧 FUNCTIONALITY
+- **Mock Data Only**: No Apex controllers or real Salesforce data access
+- **Static Content**: Use `@api` properties for all configurable content
+- **No Backend Logic**: Keep components lightweight and presentation-focused
+- **Demo-Ready**: Components should work immediately after deployment
+
+### 🎯 COMPONENT STYLING GUIDELINES
+- **Use Salesforce Defaults**: Let Salesforce handle default styling for cards, borders, and corners
+- **No Custom Outlines**: Do NOT add custom `border-radius`, `outline`, or `border` properties to override Salesforce defaults
+- **Card Styling**: Use `slds-card` class without custom border-radius modifications
+- **Natural Appearance**: Components should look native to Salesforce without forced custom styling
+- **Exception**: Only add custom styling when specifically required for functionality (e.g., background images, custom colors)
+- **Best Practice**: Test components with default Salesforce theming before adding any custom styling
+
+## Component Structure Guidelines
+
+### HTML Template Structure
+```html
+<template>
+    <article class="slds-card slds-var-p-around_x-small">
+        <!-- Use SLDS grid system for responsive layouts -->
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
+                <!-- Content here -->
+            </div>
+        </div>
+    </article>
+</template>
+```
+
+### JavaScript Controller Requirements
+```javascript
+import { LightningElement, api } from 'lwc';
+
+export default class DemoComponent extends LightningElement {
+    // All content must be @api properties for Lightning App Builder editing
+    @api backgroundColor = '#ffffff';
+    @api textColor = '#000000';
+    @api imageUrl = 'default-image-url';
+    @api title = 'Default Title';
+    @api description = 'Default Description';
+    
+    // No wire services or data fetching
+    // No complex business logic
+}
+```
+
+### CSS Styling Guidelines
+```css
+/* Use CSS custom properties for dynamic theming */
+:host {
+    --background-color: var(--lwc-backgroundColor, #ffffff);
+    --text-color: var(--lwc-textColor, #000000);
+}
+
+.slds-card {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: "Salesforce Sans";
+    /* DO NOT add custom border-radius or outline properties */
+}
+
+/* Responsive design patterns */
+@media (max-width: 768px) {
+    .mobile-adjustment {
+        /* Mobile-specific styles */
+    }
+}
+```
+
+### Meta XML Configuration
+```xml
+<targetConfigs>
+    <targetConfig targets="lightning__RecordPage">
+        <!-- Theme customization -->
+        <property name="darkMode" type="Boolean" default="false" label="Dark Mode" description="Toggle between dark and light theme"/>
+        <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Custom background color (overrides theme)"/>
+        <property name="textColor" type="String" default="#000000" label="Text Color" description="Custom text color (overrides theme)"/>
+        
+        <!-- Content customization -->
+        <property name="title" type="String" default="Default Title" label="Title"/>
+        <property name="imageUrl" type="String" default="default-url" label="Image URL"/>
+        
+        <!-- Always include description for property usage -->
+        <property name="description" type="String" default="Default description" label="Description"/>
+    </targetConfig>
+    <targetConfig targets="lightning__AppPage,lightning__HomePage">
+        <!-- Duplicate the same properties for other targets -->
+        <property name="darkMode" type="Boolean" default="false" label="Dark Mode" description="Toggle between dark and light theme"/>
+        <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Custom background color (overrides theme)"/>
+        <property name="textColor" type="String" default="#000000" label="Text Color" description="Custom text color (overrides theme)"/>
+        <property name="title" type="String" default="Default Title" label="Title"/>
+        <property name="imageUrl" type="String" default="default-url" label="Image URL"/>
+        <property name="description" type="String" default="Default description" label="Description"/>
+    </targetConfig>
+</targetConfigs>
+```
+
+## Development Best Practices
+
+### 1. Component Naming
+- Use descriptive, camelCase names (e.g., `dataCloudInsights`, `customerProfile`)
+- Include "Demo" or "Mock" in component names to indicate purpose
+
+### 2. File Organization
+- Follow standard LWC structure: `componentName/componentName.html`, `.js`, `.css`, `.js-meta.xml`
+- Use consistent indentation and formatting
+
+### 3. Accessibility
+- Include proper `alt` attributes for images
+- Use semantic HTML elements
+- Ensure proper color contrast ratios
+- Include ARIA labels where appropriate
+
+### 4. Performance
+- Keep components lightweight
+- Minimize DOM manipulation
+- Use efficient CSS selectors
+- Avoid unnecessary re-renders
+
+### 5. Testing Considerations
+- Test on multiple screen sizes (320px, 768px, 1024px, 1920px)
+- Test at different zoom levels (100%, 125%, 150%, 200%)
+- Verify Lightning App Builder property editing works
+- Test component responsiveness in different contexts
+
+### 6. Salesforce CLI Usage
+- **Use New SF CLI**: Always use the new `sf` commands instead of the older `sfdx` commands
+- **Examples**: 
+  - Use `sf project deploy start` instead of `sfdx force:source:deploy`
+  - Use `sf org open` instead of `sfdx force:org:open`
+  - Use `sf project retrieve start` instead of `sfdx force:source:retrieve`
+- **Modern Workflow**: The new SF CLI provides better performance and enhanced features
+
+## Common Patterns to Follow
+
+### Data Display Pattern
+```html
+<div class="slds-grid slds-gutters slds-grid_align-end slds-var-p-around_xx-small">
+    <div class="slds-col">
+        <lightning-icon class="slds-icon" size="x-small" icon-name={iconName}></lightning-icon>
+    </div>
+    <div class="slds-col">
+        <div class="slds-text-title slds-text-color_weak">{label}</div>
+    </div>
+    <div class="slds-col">
+        <div class="slds-text-title_bold">{value}</div>
+    </div>
+</div>
+```
+
+### Progress/Score Display Pattern
+```html
+<div class="slds-grid">
+    <div class="slds-col slds-size_1-of-8">&nbsp;</div>
+    <div class="slds-col slds-size_7-of-8">
+        <lightning-progress-bar value={progressValue} size="small"></lightning-progress-bar>
+    </div>
+</div>
+```
+
+### Responsive Image Pattern
+```html
+<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
+    <img src={imageUrl} alt={imageAlt} class="slds-image" />
+</div>
+```
+
+### Dark Mode Implementation Pattern
+```javascript
+// JavaScript Controller
+@api darkMode = false;
+
+get containerClass() {
+    return this.darkMode ? 'slds-card dark-mode' : 'slds-card light-mode';
+}
+```
+
+```html
+<!-- HTML Template -->
+<article class={containerClass}>
+    <!-- Component content -->
+</article>
+```
+
+```css
+/* CSS Styling */
+.slds-card.dark-mode {
+    background: #032d60;
+    color: #ffffff;
+}
+
+.slds-card.light-mode {
+    background: #ffffff;
+    color: #000000;
+}
+```
+
+## Quality Checklist
+Before completing any component, ensure:
+
+- [ ] All content is configurable via `@api` properties
+- [ ] Component works on desktop, tablet, and mobile
+- [ ] Dark mode and light mode toggle functionality implemented
+- [ ] Background and text colors are customizable
+- [ ] Images have configurable URLs
+- [ ] Uses SLDS design system consistently
+- [ ] No Apex or data access dependencies
+- [ ] Proper error handling for missing properties
+- [ ] Accessibility considerations implemented
+- [ ] Lightning App Builder properties are well-labeled
+- [ ] Component scales properly at different zoom levels
+- [ ] No custom border-radius or outline properties added
+- [ ] Component uses Salesforce default styling for cards and borders
+
+## Notes for AI Assistant
+When creating or modifying components:
+1. Always prioritize responsiveness and desktop optimization
+2. Include comprehensive `@api` properties for all content
+3. Use SLDS classes and components consistently
+4. Follow standard Salesforce theming and branding guidelines
+5. Ensure all visual elements are customizable via Lightning App Builder
+6. Test component behavior across different screen sizes and zoom levels
+7. Keep components lightweight and demo-focused
+8. **DO NOT add custom border-radius, outline, or border properties** - let Salesforce handle default styling
+9. Use `slds-card` class without modifications for natural Salesforce appearance
+
+## Common LWC Deployment Errors to Avoid
+
+### 1. XML Meta File Issues
+- **Multiple targetConfig Elements**: Never use multiple `<targetConfig>` elements in the same meta XML file. Combine all properties into a single `<targetConfig>` element.
+- **XML Comments in targetConfig**: Avoid XML comments (`<!-- -->`) inside `<targetConfig>` elements as they can cause parsing errors.
+- **valueSet Elements**: Do NOT use `<valueSet>` elements in LWC meta XML files. They are not supported and will cause deployment failures. Use simple String properties with descriptive text instead.
+- **targetConfigs vs targetConfig**: Use `<targetConfigs>` (plural) as the wrapper element, with individual `<targetConfig>` (singular) elements inside for different target combinations.
+- **targetConfig Parsing Issues**: If `targetConfig` elements continue to cause parsing errors, consider removing them entirely. Components can still function without `targetConfig` properties, though they won't be configurable in Lightning App Builder.
+- **Component Naming Conflicts**: Avoid naming LWC components the same as existing Aura components. If conflicts occur, rename the LWC component (e.g., `genieHighlightCard` → `genieHighlightCardLWC`).
+
+### 2. Correct Meta XML Structure - WORKING PATTERN
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            <!-- All properties for Record Page -->
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
+            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
+            <!-- Duplicate the same properties for App/Home Pages -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
+```
+
+### 3. Boolean Property Defaults
+- **Boolean properties must default to false**: All `@api` boolean properties must have `default="false"` in the meta XML file, not `default="true"`.
+
+### 4. HTML Template Issues
+- **Duplicate attributes**: Never use duplicate attributes in HTML elements (e.g., duplicate `class` attributes).
+- **Missing key attributes**: Always include `key` attributes for elements in `for:each` loops.
+- **Proper iterator syntax**: Use `for:each={array} for:item="item" for:index="index"` with `key={item.id}`.
+
+### 5. XML Entity Escaping
+- **URL Parameters**: Always escape `&` as `&amp;` in XML attributes (e.g., URLs with query parameters)
+- **Example**: `https://example.com?param1=value1&amp;param2=value2`
+
+### 6. Deployment Best Practices
+- **Test deployment frequently**: Deploy components incrementally to catch errors early.
+- **Use SF CLI validation**: Run `sf project deploy validate` before full deployment.
+- **Check for naming conflicts**: Ensure component names don't conflict with existing Aura components.
+- **Validate XML syntax**: Ensure all XML files are well-formed and properly closed.
+- **Follow Working Pattern**: Use the exact `<targetConfigs>` structure that successfully deployed for genieHighlightCardLWC.
+
+### 7. Component Styling Best Practices
+- **Use Salesforce Defaults**: Let Salesforce handle default card styling, borders, and corners
+- **No Custom Outlines**: Do NOT add `border-radius`, `outline`, or custom `border` properties to override Salesforce defaults
+- **Natural Appearance**: Components should look native to Salesforce without forced custom styling
+- **Exception Cases**: Only add custom styling when specifically required for functionality (e.g., background images, custom colors)
+- **Testing**: Always test components with default Salesforce theming before adding any custom styling 

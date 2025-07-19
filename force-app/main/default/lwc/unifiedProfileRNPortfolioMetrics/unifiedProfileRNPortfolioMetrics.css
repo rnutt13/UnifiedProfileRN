@@ -1,0 +1,408 @@
+/* Theme System Variables */
+:host {
+    --dark-blue: #032d60;
+    --light-blue: rgba(111, 159, 178, 1);
+    --white: #ffffff;
+    --black: #000000;
+    --light-gray: #f3f3f3;
+    --dark-gray: #706e6b;
+    --success-green: #04844b;
+    --border-radius: 0.25rem;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Base Card Styles */
+.slds-card {
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+/* Header Theme Styles */
+.header-dark {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 1.5rem;
+    position: relative;
+}
+
+.header-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.header-dark > * {
+    position: relative;
+    z-index: 1;
+}
+
+.header-light {
+    background: var(--white);
+    color: var(--black);
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+/* Header Content Styles */
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: inherit;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.header-subtitle {
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0 0;
+    opacity: 0.8;
+    color: inherit;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.header-icon {
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.header-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Body Theme Styles */
+.body-dark {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 1.5rem;
+}
+
+.body-light {
+    background: var(--white);
+    color: var(--black);
+    padding: 1.5rem;
+}
+
+/* Card Theme Overrides */
+.card-all-dark {
+    background: var(--dark-blue);
+    color: var(--white);
+}
+
+.card-all-light {
+    background: var(--white);
+    color: var(--black);
+}
+
+.card-split-theme {
+    background: var(--white);
+}
+
+/* Metric Cards */
+.metric-card {
+    background: var(--white);
+    padding: 1.5rem;
+    transition: var(--transition);
+    border: 1px solid #dddbda;
+    border-radius: var(--border-radius);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Dark theme metric card adjustments */
+.body-dark .metric-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+}
+
+/* Metric Icon Container */
+.metric-icon-container {
+    background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.metric-icon {
+    color: var(--white);
+}
+
+/* Metric Content */
+.metric-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.metric-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+.body-dark .metric-title {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.body-dark .metric-value {
+    color: var(--white);
+}
+
+/* Metric Trend */
+.metric-trend {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    background: rgba(4, 132, 75, 0.1);
+    color: var(--success-green);
+    border-radius: var(--border-radius);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.body-dark .metric-trend {
+    background: rgba(255, 255, 255, 0.1);
+    color: #4ade80;
+}
+
+.trend-icon {
+    color: inherit;
+}
+
+/* Progress Section */
+.progress-section {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.body-dark .progress-section {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-label {
+    font-weight: 600;
+    color: var(--dark-gray);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.body-dark .progress-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.progress-value {
+    font-weight: 700;
+    color: var(--dark-blue);
+    font-size: 1.125rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.body-dark .progress-value {
+    color: var(--white);
+}
+
+/* Custom Progress Bar */
+.custom-progress-bar {
+    --slds-c-progress-bar-color-background: rgba(48, 113, 157, 0.2);
+    --slds-c-progress-bar-color-background-fill: var(--dark-blue);
+}
+
+.body-dark .custom-progress-bar {
+    --slds-c-progress-bar-color-background: rgba(255, 255, 255, 0.2);
+    --slds-c-progress-bar-color-background-fill: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .metric-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .header-title {
+        font-size: 1.25rem;
+    }
+    
+    .header-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .metric-icon-container {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .metric-title {
+        font-size: 0.75rem;
+    }
+    
+    .metric-trend {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slds-card__header,
+    .slds-card__body {
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        padding: 0.75rem;
+    }
+    
+    .metric-value {
+        font-size: 1.25rem;
+    }
+    
+    .header-title {
+        font-size: 1.125rem;
+    }
+    
+    .header-subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .metric-title {
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .metric-trend {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.3rem;
+    }
+    
+    .progress-section {
+        padding: 1rem;
+    }
+    
+    .progress-label {
+        font-size: 0.875rem;
+    }
+    
+    .progress-value {
+        font-size: 1rem;
+    }
+    
+    .metric-icon-container {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .metric-value {
+        font-size: 1.125rem;
+    }
+    
+    .header-title {
+        font-size: 1rem;
+    }
+    
+    .metric-title {
+        font-size: 0.65rem;
+    }
+    
+    .metric-trend {
+        font-size: 0.6rem;
+    }
+    
+    .metric-card {
+        padding: 0.5rem;
+    }
+    
+    .metric-icon-container {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Animation for metric cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metric-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.metric-card:nth-child(1) { animation-delay: 0.1s; }
+.metric-card:nth-child(2) { animation-delay: 0.2s; }
+.metric-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Focus states for accessibility */
+.metric-card:focus-within {
+    outline: 2px solid var(--dark-blue);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .metric-card {
+        border: 2px solid var(--black);
+    }
+    
+    .metric-icon-container {
+        border: 2px solid var(--white);
+    }
+} 
