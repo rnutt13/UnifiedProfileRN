@@ -124,6 +124,68 @@ Renaming Complete!
 [INFO] Deployment summary created: DEPLOYMENT_SUMMARY.md
 ```
 
+## 🎯 Creating Component Variations
+
+If you want to create a modified version of the demo components while keeping the original intact, follow these steps:
+
+### Step 1: Run the Rename Script
+Use the rename script to create new component versions:
+```bash
+./tools/rename-components.sh [variation-name]
+```
+
+**Example:**
+```bash
+./tools/rename-components.sh Enterprise
+```
+This creates components like `EnterpriseUnifiedProfileRNContactCard`, `EnterpriseUnifiedProfileRNHealthCheck`, etc.
+
+### Step 2: Update the Flexipage
+After renaming components, you need to update the flexipage to reference the new components:
+
+1. **Open the AI prompt file:**
+   ```bash
+   # View the prompt
+   cat prompts/create-variation.md
+   ```
+
+2. **Copy and customize the prompt:**
+   - Open `prompts/create-variation.md`
+   - Replace `[VARIATION_NAME]` with your variation name (e.g., "Enterprise")
+   - Copy the entire prompt
+
+3. **Use with your AI assistant:**
+   - Paste the prompt to your AI assistant (ChatGPT, Claude, etc.)
+   - The AI will update the flexipage to reference your renamed components
+
+### Step 3: Deploy the Variation
+```bash
+# Deploy the renamed components
+sf project deploy start --source-dir force-app/main/default/lwc/
+
+# Deploy the updated flexipage
+sf project deploy start --source-dir force-app/main/default/flexipages/
+```
+
+### Result
+You'll now have:
+- **Original components** (unchanged)
+- **New variation components** (with your prefix)
+- **New flexipage** that uses the variation components
+- **Both versions** available in your org
+
+### Example Workflow
+```bash
+# Create "Enterprise" variation
+./tools/rename-components.sh Enterprise
+
+# Use AI prompt to update flexipage
+# (copy from prompts/create-variation.md)
+
+# Deploy everything
+sf project deploy start --source-dir force-app/main/default/
+```
+
 ## 🚨 Important Notes
 
 - **Always rename components** before deployment if you have existing components with the same names

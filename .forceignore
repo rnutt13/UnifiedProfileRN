@@ -13,3 +13,6 @@ package.xml
 
 # Tools directory (not for deployment)
 tools/
+
+# Prompts directory (not for deployment)
+prompts/
