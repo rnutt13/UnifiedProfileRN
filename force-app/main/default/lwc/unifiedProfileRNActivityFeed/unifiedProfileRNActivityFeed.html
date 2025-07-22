@@ -1,5 +1,5 @@
 <template>
-    <article class="slds-card slds-var-p-around_x-small">
+    <article class="slds-card slds-var-p-around_x-small dark-mode">
         <!-- Header with title and actions -->
         <div class="slds-card__header slds-grid slds-grid_align-spread">
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="slds-media__body">
                     <h2 class="slds-card__header-title">
-                        <span class="slds-text-heading_small" style="font-weight: 700;">{title}</span>
+                        <span class="slds-text-heading_small dark-text" style="font-weight: 700;">{title}</span>
                     </h2>
                 </div>
             </header>
@@ -22,14 +22,14 @@
                         icon-name="utility:add" 
                         variant="bare" 
                         title="Create new activity"
-                        class="header-button"
+                        class="header-button dark-button"
                         onclick={handleCreateActivity}>
                     </lightning-button-icon>
                     <lightning-button-icon 
                         icon-name="utility:refresh" 
                         variant="bare" 
                         title="Refresh"
-                        class="header-button"
+                        class="header-button dark-button"
                         onclick={handleRefresh}>
                     </lightning-button-icon>
                 </lightning-button-group>
@@ -37,13 +37,13 @@
         </div>
 
         <!-- Activity feed content -->
-        <div class="feed-container" style={feedHeightStyle}>
+        <div class="feed-container dark-feed" style={feedHeightStyle}>
             <template if:true={activities.length}>
                 <ul class="slds-timeline slds-timeline_vertical">
                     <template for:each={activities} for:item="activity" for:index="index">
                         <li key={activity.id} class="slds-timeline__item">
                             <div class="slds-timeline__trigger">
-                                <div class="slds-timeline__icon">
+                                <div class="slds-timeline__icon dark-icon">
                                     <lightning-icon 
                                         icon-name={activity.icon} 
                                         size="xx-small"
@@ -55,18 +55,18 @@
                                         <div class="slds-media__body">
                                             <div class="slds-grid slds-grid_align-spread">
                                                 <div class="slds-col">
-                                                    <h3 class="slds-text-heading_small slds-text-color_default">
+                                                    <h3 class="slds-text-heading_small dark-text">
                                                         {activity.title}
                                                     </h3>
-                                                    <p class="slds-text-body_small slds-text-color_weak slds-m-top_xx-small">
+                                                    <p class="slds-text-body_small dark-text-secondary slds-m-top_xx-small">
                                                         {activity.message}
                                                     </p>
                                                 </div>
                                                 <div class="slds-col slds-col_bump-left slds-text-align_right">
-                                                    <p class="slds-text-body_small slds-text-color_weak">
+                                                    <p class="slds-text-body_small dark-text-secondary">
                                                         {activity.timeAgo}
                                                     </p>
-                                                    <p class="slds-text-body_small slds-text-color_weak">
+                                                    <p class="slds-text-body_small dark-text-secondary">
                                                         {activity.time}
                                                     </p>
                                                 </div>
@@ -84,8 +84,8 @@
             <template if:false={activities.length}>
                 <div class="slds-illustration slds-illustration_small">
                     <div class="slds-text-longform">
-                        <h3 class="slds-text-heading_medium">{emptyStateTitle}</h3>
-                        <p class="slds-text-body_regular">{emptyStateMessage}</p>
+                        <h3 class="slds-text-heading_medium dark-text">{emptyStateTitle}</h3>
+                        <p class="slds-text-body_regular dark-text-secondary">{emptyStateMessage}</p>
                     </div>
                 </div>
             </template>
@@ -96,6 +96,7 @@
             <lightning-button 
                 label={viewAllLabel} 
                 variant="bare" 
+                class="dark-button"
                 onclick={handleViewAll}>
             </lightning-button>
         </footer>

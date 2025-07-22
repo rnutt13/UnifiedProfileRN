@@ -1,29 +1,33 @@
-:host {
-    --background-color: var(--lwc-backgroundColor, #ffffff);
-    --text-color: var(--lwc-textColor, #000000);
-    --feed-height: var(--lwc-heightPixels, 400px);
+/* Dark mode styling with fixed background #0C2D60 and white text */
+.dark-mode {
+    background: #0C2D60 !important;
+    color: #ffffff !important;
+    border: 1px solid #1a4a8a;
 }
 
-.slds-card {
-    background: var(--background-color);
-    color: var(--text-color);
+.dark-text {
+    color: #ffffff !important;
 }
 
-.feed-container {
+.dark-text-secondary {
+    color: #b8c7d9 !important;
+}
+
+.dark-feed {
     overflow-y: auto;
-    max-height: var(--feed-height);
+    max-height: 400px;
     padding: 0.5rem 0;
+    background: #0C2D60;
 }
 
 .activity-icon {
     background-color: #FFC043;
 }
 
-.slds-timeline__icon {
-    background-color: white;
-    border: 2px solid #dddbda;
+.slds-timeline__icon.dark-icon {
+    background-color: #ffffff;
+    border: 2px solid #1a4a8a;
     border-radius: 50%;
-    /* Use default SLDS icon size so the connector line aligns perfectly */
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -34,22 +38,21 @@
     flex-shrink: 0;
 }
 
-/* Icon color classes */
+/* Icon color classes for dark mode */
 .icon-blue {
-    /* Correct SLDS custom property for icon foreground color */
-    --sds-c-icon-color-foreground: #0070d2;
+    --sds-c-icon-color-foreground: #4a9eff;
 }
 
 .icon-green {
-    --sds-c-icon-color-foreground: #04844b;
+    --sds-c-icon-color-foreground: #4ade80;
 }
 
 .icon-orange {
-    --sds-c-icon-color-foreground: #ff9a3c;
+    --sds-c-icon-color-foreground: #ffb366;
 }
 
 .icon-gray {
-    --sds-c-icon-color-foreground: #706e6b;
+    --sds-c-icon-color-foreground: #b8c7d9;
 }
 
 .slds-timeline__item {
@@ -57,18 +60,16 @@
     padding: 0.5rem 0;
 }
 
-/* Remove existing connector line and build a perfectly centred line off the icon itself */
-
-/* Connector for desktop icons (2rem) */
-.slds-timeline__item:not(:last-child) .slds-timeline__icon::after {
+/* Connector line for dark mode */
+.slds-timeline__item:not(:last-child) .slds-timeline__icon.dark-icon::after {
     content: '';
     position: absolute;
-    left: 50%;                /* centre horizontally */
-    top: 100%;                /* start just below icon */
+    left: 50%;
+    top: 100%;
     transform: translateX(-50%);
     width: 2px;
-    height: calc(100% + 0.5rem); /* extend past gap to next item */
-    background-color: #dddbda;
+    height: calc(100% + 0.5rem);
+    background-color: #1a4a8a;
     z-index: 1;
 }
 
@@ -87,22 +88,36 @@
 .slds-media__body h3 {
     margin-bottom: 0.25rem;
     font-weight: 600;
+    color: #ffffff;
 }
 
 .slds-media__body p {
     margin-bottom: 0.25rem;
     line-height: 1.4;
+    color: #b8c7d9;
 }
 
-/* Header button styling to match Aura component */
-.header-button {
-    border: 1px solid #dddbda;
+/* Header button styling for dark mode */
+.header-button.dark-button {
+    border: 1px solid #1a4a8a;
     border-radius: 0.25rem;
     margin-left: 0.25rem;
+    color: #ffffff;
 }
 
-.header-button:hover {
-    background-color: #f3f2f2;
+.header-button.dark-button:hover {
+    background-color: #1a4a8a;
+    color: #ffffff;
+}
+
+/* Footer button styling for dark mode */
+.dark-button {
+    color: #ffffff !important;
+}
+
+.dark-button:hover {
+    background-color: #1a4a8a !important;
+    color: #ffffff !important;
 }
 
 /* Responsive design */
@@ -117,13 +132,13 @@
         gap: 0.5rem;
     }
     
-    .slds-timeline__icon {
+    .slds-timeline__icon.dark-icon {
         width: 1.25rem;
         height: 1.25rem;
     }
     
-    /* Mobile / tablet connector (1.25rem icon) */
-    .slds-timeline__item:not(:last-child) .slds-timeline__icon::after {
+    /* Mobile connector */
+    .slds-timeline__item:not(:last-child) .slds-timeline__icon.dark-icon::after {
         left: 50%;
         top: 100%;
         transform: translateX(-50%);
@@ -147,38 +162,36 @@
     }
 }
 
-/* Custom scrollbar for webkit browsers */
-.feed-container::-webkit-scrollbar {
+/* Custom scrollbar for dark mode */
+.dark-feed::-webkit-scrollbar {
     width: 6px;
 }
 
-.feed-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.dark-feed::-webkit-scrollbar-track {
+    background: #0C2D60;
 }
 
-.feed-container::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
+.dark-feed::-webkit-scrollbar-thumb {
+    background: #1a4a8a;
 }
 
-.feed-container::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+.dark-feed::-webkit-scrollbar-thumb:hover {
+    background: #2a5a9a;
 }
 
 /* Focus states for accessibility */
 .slds-button:focus,
 lightning-button-icon:focus {
-    outline: 2px solid #0070d2;
+    outline: 2px solid #4a9eff;
     outline-offset: 2px;
 }
 
-/* Hover effects - completely rewritten to prevent any movement */
+/* Hover effects for dark mode */
 .slds-timeline__item {
     transition: background-color 0.2s ease;
 }
 
 .slds-timeline__item:hover {
-    background-color: rgba(0, 112, 210, 0.05);
+    background-color: rgba(26, 74, 138, 0.3);
     border-radius: 0.25rem;
-}
-
-/* Removed icon/line position overrides on hover to prevent visual jitter */ 
+} 

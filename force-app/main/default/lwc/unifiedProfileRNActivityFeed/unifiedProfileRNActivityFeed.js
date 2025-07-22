@@ -1,9 +1,7 @@
 import { LightningElement, api, track } from 'lwc';
 
 export default class UnifiedProfileRNActivityFeed extends LightningElement {
-    // UI Customization Properties
-    @api backgroundColor = '#ffffff';
-    @api textColor = '#000000';
+    // Fixed properties for dark mode
     @api title = 'Activity Timeline';
     @api viewAllLabel = 'View All';
     @api emptyStateTitle = 'No Activities Found';
