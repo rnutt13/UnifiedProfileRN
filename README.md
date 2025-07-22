@@ -13,6 +13,12 @@ If you're new to command line tools, Git, or Salesforce CLI, start with our plat
 - **[Step-by-Step Setup Guide for Unified Profile Demo Components (Windows)](STEP_BY_STEP_SETUP_GUIDE_WINDOWS.md)**  
   Complete setup instructions for Windows users
 
+## Video Setup and Usage Demos
+[Teaser: Build Unified Profile in SDO with Cursor](https://salesforce.vidyard.com/watch/KwDuEPpuxeubn88C2AgkUp) (3 min)
+[Build Unified Profile in SDO with Cursor](https://salesforce.vidyard.com/watch/pS76ddBbqEBG2D8kgDScoh) (11 min)
+[Salesforce CLI Tool Intro](https://salesforce.vidyard.com/watch/seEkntrW1cNh1ZmJTB7pAw) (4 min)
+[GitHub Push](https://salesforce.vidyard.com/watch/MtBoZpzxS9Z7XQW3Wsnr2t) (4 min)
+
 ### For Technical Users
 ## 🚀 Quick Start
 
