@@ -7,24 +7,4 @@
         <target>lightning__AppPage</target>
         <target>lightning__HomePage</target>
     </targets>
-    
-    <targetConfigs>
-        <targetConfig targets="lightning__RecordPage">
-            <!-- UI Customization -->
-            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
-            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
-            
-            <!-- Flow Configuration -->
-            <property name="currentStepIndex" type="Integer" default="0" label="Starting Step" description="Which step to start on (0=Data Discovery, 1=Identity Matching, 2=Profile Unification)"/>
-        </targetConfig>
-        <targetConfig targets="lightning__AppPage,lightning__HomePage">
-            <!-- UI Customization -->
-            <property name="backgroundColor" type="String" default="#ffffff" label="Background Color" description="Background color for the component"/>
-            <property name="textColor" type="String" default="#000000" label="Text Color" description="Text color for the component"/>
-            
-            <!-- Flow Configuration -->
-            <property name="currentStepIndex" type="Integer" default="0" label="Starting Step" description="Which step to start on (0=Data Discovery, 1=Identity Matching, 2=Profile Unification)"/>
-        </targetConfig>
-    </targetConfigs>
-
 </LightningComponentBundle> 
