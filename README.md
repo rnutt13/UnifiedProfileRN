@@ -7,7 +7,7 @@ This repository contains Lightning Web Components (LWCs) designed to demonstrate
 ### For Non-Technical Users
 If you're new to command line tools, Git, or Salesforce CLI, start with our platform-specific step-by-step setup guides:
 
-- **[Step-by-Step Setup Guide for Unified Profile Demo Components (Mac)](STEP_BY_STEP_SETUP_GUIDE_MAC)**  
+- **[Step-by-Step Setup Guide for Unified Profile Demo Components (Mac)](STEP_BY_STEP_SETUP_GUIDE_MAC.md)**  
   Complete setup instructions for macOS users
 
 - **[Step-by-Step Setup Guide for Unified Profile Demo Components (Windows)](STEP_BY_STEP_SETUP_GUIDE_WINDOWS.md)**  
